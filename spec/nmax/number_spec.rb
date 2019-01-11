@@ -66,6 +66,10 @@ RSpec.describe NMax::Number do
     let(:zeroes) { 0 }
 
     it { is_expected.to respond_to(:<=>, :to_s) }
+
+    it 'should be comparable' do
+      expect(subject).to be_a(Comparable)
+    end
   end
 
   describe '#<=>' do
