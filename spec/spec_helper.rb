@@ -2,6 +2,8 @@
 
 require 'rspec'
 
+require_relative '../lib/nmax'
+
 RSpec.configure do |config|
   config.expose_dsl_globally = false
 end
