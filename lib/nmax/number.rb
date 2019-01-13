@@ -26,13 +26,15 @@ module NMax
     # @raise [ArgumentError]
     #   if the value of `zeroes` parameter is negative
     # @raise [ArgumentError]
+    #   if sum of length of `str` parameter value and `zeroes` value is zero
+    # @raise [ArgumentError]
     #   if sum of length of `str` parameter value and `zeroes` value is more
     #   than the value of {MAX_LENGTH}
     def initialize(str, zeroes)
       check_str(str)
       check_zeroes(zeroes)
       check_length(str, zeroes)
-      @num = Integer(str)
+      @num = str.empty? ? 0 : Integer(str)
       @zeroes = zeroes
     end
 
@@ -49,7 +51,7 @@ module NMax
     # Returns string representation of the number with leading zeroes included
     # @return [String]
     def to_s
-      "#{'0' * zeroes}#{num}"
+      num.zero? ? '0' * zeroes : "#{'0' * zeroes}#{num}"
     end
 
     protected
@@ -102,7 +104,9 @@ module NMax
     #   if sum of length of `str` string and `zeroes` value is more than the
     #   value of {MAX_LENGTH}
     def check_length(str, zeroes)
-      raise Errors::Length::TooLong if str.length + zeroes > MAX_LENGTH
+      length = str.length + zeroes
+      raise Errors::Length::Zero if length.zero?
+      raise Errors::Length::TooLong if length > MAX_LENGTH
     end
   end
 end

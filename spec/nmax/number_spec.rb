@@ -55,6 +55,15 @@ RSpec.describe NMax::Number do
       end
     end
 
+    context 'when the resulting number has no digits' do
+      let(:str) { '' }
+      let(:zeroes) { 0 }
+
+      it 'should raise ArgumentError' do
+        expect { subject }.to raise_error(ArgumentError)
+      end
+    end
+
     context 'when the resulting number has too many digits' do
       let(:str) { '123' }
       let(:zeroes) { described_class::MAX_LENGTH }
@@ -144,6 +153,18 @@ RSpec.describe NMax::Number do
 
       it 'should include all leading zeroes' do
         expect(result).to be_start_with('0' * zeroes)
+      end
+
+      it 'should include no more leading zeroes than provided' do
+        expect(result[zeroes]).not_to be == '0'
+      end
+
+      context 'when the number was constructed from empty string of digits' do
+        let(:str) { '' }
+
+        it 'should be correct string of zeroes' do
+          expect(result).to be == '0' * zeroes
+        end
       end
     end
   end
