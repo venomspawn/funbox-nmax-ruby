@@ -34,7 +34,7 @@ module NMax
       check_str(str)
       check_zeroes(zeroes)
       check_length(str, zeroes)
-      @num = Integer(str)
+      @num = str.empty? ? 0 : Integer(str)
       @zeroes = zeroes
     end
 
@@ -51,7 +51,7 @@ module NMax
     # Returns string representation of the number with leading zeroes included
     # @return [String]
     def to_s
-      "#{'0' * zeroes}#{num}"
+      num.zero? ? '0' * zeroes : "#{'0' * zeroes}#{num}"
     end
 
     protected
