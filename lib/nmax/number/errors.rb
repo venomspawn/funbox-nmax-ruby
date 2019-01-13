@@ -64,6 +64,18 @@ module NMax
       # Namespace of error classes used to signal about problems length of
       # string representation of a number
       module Length
+        # Class of errors which signal that number has no digits in its string
+        # representation
+        class Zero < ArgumentError
+          # Message on the error
+          MESSAGE = 'Number has no digits'
+
+          # Initializes instance of the class
+          def initialize
+            super(MESSAGE)
+          end
+        end
+
         # Class of errors which signal that number has too many digits in its
         # string representation
         class TooLong < ArgumentError

@@ -26,6 +26,8 @@ module NMax
     # @raise [ArgumentError]
     #   if the value of `zeroes` parameter is negative
     # @raise [ArgumentError]
+    #   if sum of length of `str` parameter value and `zeroes` value is zero
+    # @raise [ArgumentError]
     #   if sum of length of `str` parameter value and `zeroes` value is more
     #   than the value of {MAX_LENGTH}
     def initialize(str, zeroes)
@@ -102,7 +104,9 @@ module NMax
     #   if sum of length of `str` string and `zeroes` value is more than the
     #   value of {MAX_LENGTH}
     def check_length(str, zeroes)
-      raise Errors::Length::TooLong if str.length + zeroes > MAX_LENGTH
+      length = str.length + zeroes
+      raise Errors::Length::Zero if length.zero?
+      raise Errors::Length::TooLong if length > MAX_LENGTH
     end
   end
 end

@@ -55,6 +55,15 @@ RSpec.describe NMax::Number do
       end
     end
 
+    context 'when the resulting number has no digits' do
+      let(:str) { '' }
+      let(:zeroes) { 0 }
+
+      it 'should raise ArgumentError' do
+        expect { subject }.to raise_error(ArgumentError)
+      end
+    end
+
     context 'when the resulting number has too many digits' do
       let(:str) { '123' }
       let(:zeroes) { described_class::MAX_LENGTH }
