@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 RSpec.describe NMax::Number do
+  describe 'the class' do
+    subject { described_class }
+
+    it { is_expected.to respond_to(:new) }
+  end
+
   describe '.new' do
     subject(:result) { described_class.new(str, zeroes) }
 
