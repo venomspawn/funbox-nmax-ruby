@@ -6,6 +6,8 @@ module NMax
   class Number
     require_relative 'number/errors'
 
+    include Comparable
+
     # Maximum allowed length of string of digits of a number, including leading
     # zeroes
     MAX_LENGTH = 1_000
