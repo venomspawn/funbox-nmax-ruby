@@ -1,0 +1,16 @@
+language: ruby
+
+rvm: 2.5
+
+dist: trusty
+
+branches:
+  only:
+    - master
+    - develop
+
+script:
+  - |
+    bundle exec rubocop &&
+    bundle exec rspec &&
+    gem build nmax.gemspec

@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative '../lib/nmax/application'
+
+app = NMax::Application.new(STDIN, ARGV[0])
+app.run!
