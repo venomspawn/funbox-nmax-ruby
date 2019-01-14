@@ -4,6 +4,7 @@ AllCops:
   Exclude:
     - ansible/**/*
     - tmp/**/*
+    - vendor/**/*
 
 Lint/AmbiguousBlockAssociation:
   Exclude:

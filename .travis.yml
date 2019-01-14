@@ -19,6 +19,6 @@ jobs:
     - stage: rubocop
       script: bundle exec rubocop
     - stage: rspec
-      script: bundle exec rubocop
+      script: bundle exec rspec
     - stage: build
       script: gem build nmax.gemspec
