@@ -70,7 +70,7 @@ module NMax
 
     # Checks if the argument is of `String` class and if it doesn't start with
     # `0` digit
-    # @type [Object] str
+    # @param [Object] str
     #   argument
     # @raise [ArgumentError]
     #   if the argument is not of `String` class
@@ -83,7 +83,7 @@ module NMax
 
     # Checks if the argument is of `Integer` class and if it is positive or
     # zero
-    # @type [Object] zeroes
+    # @param [Object] zeroes
     #   argument
     # @raise [ArgumentError]
     #   if the argument is not of `Integer` class
