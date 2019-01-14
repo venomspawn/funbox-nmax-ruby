@@ -88,7 +88,7 @@ module NMax
 
     # Returns index in array of items to insert the argument to or `-1` if
     # there found an item in array, which is equal to the argument
-    # @param [:<=>] value
+    # @param [#<=>] value
     #   argument
     # @return [Integer]
     #   resulting value
