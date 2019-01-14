@@ -9,16 +9,8 @@ branches:
     - master
     - develop
 
-stages:
-  - rubocop
-  - rspec
-  - build
-
-jobs:
-  include:
-    - stage: rubocop
-      script: bundle exec rubocop
-    - stage: rspec
-      script: bundle exec rspec
-    - stage: build
-      script: gem build nmax.gemspec
+script:
+  - |
+    bundle exec rubocop &&
+    bundle exec rspec &&
+    gem build nmax.gemspec
