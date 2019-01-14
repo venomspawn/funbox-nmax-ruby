@@ -1,3 +1,6 @@
+build:
+	gem build nmax.gemspec
+
 debug:
 	bundle exec bin/irb_debug
 
