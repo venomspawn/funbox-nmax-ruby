@@ -1,0 +1,24 @@
+language: ruby
+
+rvm: 2.5
+
+dist: trusty
+
+branches:
+  only:
+    - master
+    - develop
+
+stages:
+  - rubocop
+  - rspec
+  - build
+
+jobs:
+  include:
+    - stage: rubocop
+      script: bundle exec rubocop
+    - stage: rspec
+      script: bundle exec rubocop
+    - stage: build
+      script: gem build nmax.gemspec
